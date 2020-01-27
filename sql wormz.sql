@@ -1,3 +1,4 @@
+drop schema wormz;
 create schema wormz;
 use wormz;
 
@@ -16,12 +17,18 @@ create table feed(
 
 create table place_box(
 	id int primary key,
-    name_box varchar(50)
+    name_box varchar(50),
+    id_worm int,
+    
+    foreign key (id_worm) references worm(id)
 );
 
 create table buyer(
 	id int primary key,
     name_buyer varchar(50),
     date_sell date,
-    total int
+    total int,
+    id_worm int,
+    
+    foreign key (id_worm) references worm(id)
 );
